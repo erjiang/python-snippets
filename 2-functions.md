@@ -38,6 +38,8 @@ And then substitute that in:
 
 > f(4) = 13
 
+Computers do things in a similar step-by-step fashion. Math teachers always want you to show your work, but computers don't usually show you their step-by-step work, just the result.
+
 ## Call and return
 
 In Python, declaring function uses `def` and `return`:
