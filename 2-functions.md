@@ -38,6 +38,8 @@ And then substitute that in:
 
 > f(4) = 13
 
+## Call and return
+
 In Python, declaring function uses `def` and `return`:
 
 ```
@@ -150,6 +152,8 @@ print my_num
 
 Why didn't we have to put `def g(x):` before `def f(x):` even though `f` uses `g`?
 
+## Scope
+
 Functions give their own names to the arguments that they're given.
 
 ```
@@ -215,7 +219,7 @@ add_score()
 print_score()
 ```
 
-Hmm... this is a design decision that the creators of Python decided on. When you write `x = 2` inside a function, chances are that you just wanted a new `x`, not that you wanted to modify any `x` that exists outside the function. That would be an unintended consequence, and an easy mistake to make once your programs get bigger and bigger.
+Hmm... even though we created the variable `scoreboard` on the first line, Python didn't let us use it. This is a design decision that the creators of Python decided on. When you write `x = 2` inside a function, chances are that you just wanted a new `x`, not that you wanted to modify any `x` that exists outside the function. That would be an unintended consequence, and an easy mistake to make once your programs get bigger and bigger.
 
 Python has a way to work around this though:
 
@@ -240,7 +244,31 @@ add_score()
 print_score()
 ```
 
-We can these things that are at the "top-level" (i.e. not in a function) "global" because everyone can see them. Variables inside the function that can't be seen or used outside the function are "local".
+We say that these things at the "top-level" (i.e. not in a function) are in the "global scope" because everyone can see them. Variables inside the function that can't be seen or used outside the function are in the function's "local scope".
+
+## Nested functions
+
+You can create functions inside functions:
+
+```
+def two_thirds(x):
+    def double(y):
+        return y * 2
+    return double(x) / 3
+
+print two_thirds(6)
+```
+
+Knowing what we know about scope, what do you think you will get if you run this program?
+
+```
+def two_thirds(x):
+    def double(y):
+        return y * 2
+    return double(x) / 3
+
+print double(3)
+```
 
 ## Bonus brainteaser
 
@@ -266,3 +294,5 @@ def halve(y):
 
 print do_twice(halve, 8)
 ```
+
+You can't do this in every programming language.
