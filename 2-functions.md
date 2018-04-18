@@ -195,7 +195,7 @@ the_name = "Moe"
 greet()
 ```
 
-It's a one-way street. You can use variables that functions create from outside the function, but functions can use variables that were declared outside of the function.
+It's a one-way street. From outside a function, you cannot use variables that were created inside the function, but inside a function, you can use variables that were declared outside of the function.
 
 Still, Python has an additional safety feature.
 
