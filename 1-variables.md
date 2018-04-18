@@ -115,7 +115,7 @@ print y
 
 We are changing the list using `.append`. That's why when we print `x` and `y`, we get the same thing.
 
-But in this example:
+But what does this example print?
 
 ```
 x = [1, 2, 3]
